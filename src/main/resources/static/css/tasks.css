@@ -11,11 +11,11 @@ body {
 
 /* コンテンツを囲む */
 .container {
-    width: 95%;
-    max-width: 1000px;
+    width: 98%;
+    max-width: 1400px;
     background-color: white;
-    margin: 40px 0;
-    padding: 30px;
+    margin: 20px 0;
+    padding: 20px;
     border-radius: 8px;
     box-sizing: border-box;
 }
