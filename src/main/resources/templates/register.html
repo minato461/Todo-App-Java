@@ -3,14 +3,18 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>ユーザ登録</title>
+		<link rel="stylesheet" th:href="@{/css/style.css}">
+		<link rel="stylesheet" th:href="@{/css/auth.css}">
 	</head>
 	<body>
 		<h1>ユーザ登録</h1>
-		<form th:action="@{/register}" method="post">
-			ユーザ名（半角英数字）<br><input type="text" name="username" required><br>
-			パスワード（半角英数字）<br><input type="password" name="password" required><br>
-			<button type="submit">登録</button>
-		</form>
-		<br><a th:href="@{/login}">ログインはこちら</a>
+		<div class="form-container">
+			<form th:action="@{/register}" method="post">
+				ユーザ名（半角英数字）<br><input type="text" name="username" required><br>
+				パスワード（半角英数字）<br><input type="password" name="password" required><br>
+				<button type="submit" class="btn register">ユーザ登録</button>
+			</form>
+			<br><a th:href="@{/login}" class="link-plain">ログインはこちら</a>
+		</div>
 	</body>
 </html>

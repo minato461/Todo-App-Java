@@ -1,0 +1,50 @@
+/* 上揃えに上書き (bodyのjustify-contentを打ち消す) */
+body {
+    justify-content: flex-start !important;
+    padding-top: 50px;
+}
+
+/* 外枠のデザイン */
+.form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    width: 320px;
+}
+
+/* h1の調整 */
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 入力欄のスタイル：使いやすさを向上 */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* フォーム内でのボタンの幅を調整 */
+.btn-form {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.login__secondary {
+    background-color: #4094edb8;
+    color: white;
+}
+
+/* リンク（下線なし） */
+.link-plain {
+    text-decoration: none;
+    color: #666;
+    font-size: 0.9em;
+}

@@ -3,38 +3,43 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>新規タスク登録</title>
+		<link rel="stylesheet" th:href="@{/css/tasks.css}">
 	</head>
 	<body>
-		<h1>新規タスク登録</h1>
-		<form th:action="@{/tasks}" th:object="${task}" method="post">
-			<div>
-				<label>ID<br></label>
-				<span th:text="*{id}"></span>
-			</div>
-			<div>
-				<label>タイトル<br></label>
-				<input type="text" th:field="*{title}" required>
-			</div>
-			<div>
-				<label>内容<br></label>
-				<textarea th:field="*{content}"></textarea>
-			</div>
-			<div>
-				<label>名前<br></label>
-				<input type="text" th:field="*{name}" required>
-			</div>
-			<div>
-				<label>開始日<br></label>
-				<input type="date" th:field="*{startDate}">
-			</div>
-			<div>
-				<label>終了日<br></label>
-				<input type="date" th:field="*{endDate}">
-			</div>
-			<input type="hidden" th:field="*{username}">
-			
-			<button type="submit">登録</button>
-			<a th:href="@{/tasks}">キャンセル</a>
-		</form>
+		<div class="container task-form-container">
+			<h1>新規タスク登録</h1>
+			<form th:action="@{/tasks}" th:object="${task}" method="post">
+				<div>
+					<label>ID<br></label>
+					<span th:text="*{id}"></span>
+				</div>
+				<div>
+					<label>タイトル<br></label>
+					<input type="text" th:field="*{title}" required>
+				</div>
+				<div>
+					<label>内容<br></label>
+					<textarea th:field="*{content}"></textarea>
+				</div>
+				<div>
+					<label>名前<br></label>
+					<input type="text" th:field="*{name}" required>
+				</div>
+				<div>
+					<label>開始日<br></label>
+					<input type="date" th:field="*{startDate}">
+				</div>
+				<div>
+					<label>終了日<br></label>
+					<input type="date" th:field="*{endDate}">
+				</div>
+				<input type="hidden" th:field="*{username}">
+
+				<button type="submit" class="btn-action btn-submit">登録</button>
+				<button type="button" class="btn-action btn-cancel" th:onclick="|location.href='@{/tasks}'|">
+					キャンセル
+				</button>
+			</form>
+		</div>
 	</body>
 </html>

@@ -1,0 +1,40 @@
+/* 中央寄せ */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+/* リストの黒丸を消して横並び */
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+/* ボタンの共通スタイル */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* ユーザ登録ボタン */
+.register {
+    background-color: #20b543;
+    color: white;
+}
+
+/* ログインボタン */
+.login {
+    background-color: #4094ed;
+    color: white;
+}

@@ -3,41 +3,45 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>ログイン</title>
+		<link rel="stylesheet" th:href="@{/css/style.css}">
+		<link rel="stylesheet" th:href="@{/css/auth.css}">
 	</head>
 	<body>
 		<h1>ログイン</h1>
-		<p th:if="${error}" th:text="${error}" style="color:red;"></p>
-		<form th:action="@{/login}" method="post">
-			ユーザー名<br><input type="text" name="username"><br>
-			パスワード<br><input type="password" name="password"><br>
-			<button type="submit">ログイン</button>
-		</form>
-		<div>
-			<button type="button" onclick="executeApiLogin()">APIでログイン</button>
+		<div class="form-container">
+			<p th:if="${error}" th:text="${error}" style="color:red;"></p>
+			<form th:action="@{/login}" method="post">
+				ユーザー名<br><input type="text" name="username"><br>
+				パスワード<br><input type="password" name="password"><br>
+				<button type="submit" class="btn login">ログイン</button>
+			</form>
+			<br>
+			<div>
+				<button type="button" onclick="executeApiLogin()" class="btn login__secondary">APIでログイン</button>
+			</div>
+
+			<script>
+			function executeApiLogin() {
+				const user = document.querySelector('input[name="username"]').value;
+				const pass = document.querySelector('input[name="password"]').value;
+
+				fetch('/api/login', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ username: user, password: pass })
+				})
+				.then(response => response.json())
+				.then(data => {
+					if (data) {
+						console.log("届いたタスク一覧:", data);
+						alert("APIログイン成功。タスク一覧データを取得しました。");
+						window.location.href = "/tasks";
+					} else {
+						alert("ログイン失敗");
+					}
+				});
+			}
+			</script>
 		</div>
-		
-		<script>
-		function executeApiLogin() {
-			const user = document.querySelector('input[name="username"]').value;
-			const pass = document.querySelector('input[name="password"]').value;
-			
-			fetch('/api/login', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ username: user, password: pass })
-			})
-			.then(response => response.json())
-			.then(data => {
-				if (data) {
-				    console.log("届いたタスク一覧:", data);
-				    alert("APIログイン成功！タスク一覧データを取得しました。");
-				    window.location.href = "/tasks";
-				} else {
-				    alert("ログイン失敗");
-				}
-			});
-		}
-		</script>
- 
 	</body>
 </html>
