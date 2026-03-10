@@ -12,5 +12,32 @@
 			パスワード<br><input type="password" name="password"><br>
 			<button type="submit">ログイン</button>
 		</form>
+		<div>
+			<button type="button" onclick="executeApiLogin()">APIでログイン</button>
+		</div>
+		
+		<script>
+		function executeApiLogin() {
+			const user = document.querySelector('input[name="username"]').value;
+			const pass = document.querySelector('input[name="password"]').value;
+			
+			fetch('/api/login', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ username: user, password: pass })
+			})
+			.then(response => response.json())
+			.then(data => {
+				if (data) {
+				    console.log("届いたタスク一覧:", data);
+				    alert("APIログイン成功！タスク一覧データを取得しました。");
+				    window.location.href = "/tasks";
+				} else {
+				    alert("ログイン失敗");
+				}
+			});
+		}
+		</script>
+ 
 	</body>
 </html>

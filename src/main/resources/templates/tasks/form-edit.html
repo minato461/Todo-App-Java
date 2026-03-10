@@ -2,11 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>新規タスク登録</title>
+		<title>タスク編集</title>
 	</head>
 	<body>
-		<h1>新規タスク登録</h1>
-		<form th:action="@{/tasks}" th:object="${task}" method="post">
+		<h1>タスク編集</h1>
+		<form th:action="@{/tasks/update/{id}(id=*{id})}" th:object="${task}" method="post">
 			<div>
 				<label>ID<br></label>
 				<span th:text="*{id}"></span>
@@ -33,7 +33,7 @@
 			</div>
 			<input type="hidden" th:field="*{username}">
 			
-			<button type="submit">登録</button>
+			<button type="submit">更新</button>
 			<a th:href="@{/tasks}">キャンセル</a>
 		</form>
 	</body>

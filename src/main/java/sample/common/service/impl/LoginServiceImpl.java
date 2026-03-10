@@ -16,7 +16,8 @@ public class LoginServiceImpl implements LoginService {
 	// ユーザー認識処理：ログイン画面から送られてきた「ID」「PW」を引数として受け取る
 	@Override
 	public Login authenticate(String username, String password) {
-		Login user = loginMapper.findByUsername(username);
+		Login user = loginMapper.findUser(username);
+		
 		if (user != null && user.getPassword().equals(password)) {
 			return user;
 		}

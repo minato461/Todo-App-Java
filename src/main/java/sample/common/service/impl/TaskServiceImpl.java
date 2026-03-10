@@ -15,12 +15,32 @@ public class TaskServiceImpl implements TaskService {
 	private TaskMapper taskMapper;
 	
 	@Override
-	public List<Task> findAll() {
-		return taskMapper.findAll();
+	public List<Task> findAllByUsername(String username) {
+		return taskMapper.findAllByUsername(username);
 	}
 	
 	@Override
 	public void insert(Task task) {
 		taskMapper.insert(task);
+	}
+	
+	@Override
+	public Long getNextId() {
+		return taskMapper.selectNextId();
+	}
+	
+	@Override
+	public Task findById(Long id) {
+		return taskMapper.findById(id);
+	}
+
+	@Override
+	public void update(Task task) {
+		taskMapper.update(task);
+	}
+
+	@Override
+	public void delete(Long id) {
+		taskMapper.delete(id);
 	}
 }
